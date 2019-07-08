@@ -1,4 +1,3 @@
-// computer generated 
 
 const optionArray = document.querySelectorAll('.box');
 const startButton = document.getElementById('start');
@@ -6,7 +5,7 @@ const startButton = document.getElementById('start');
 let humanSelectionArray = [];
 let computerSelectionArray = [];
 
-
+// computer activate class when computer number is originated
 const activeClass=()=>{
 
 	computerSelectionArray.forEach(box=>{
@@ -20,6 +19,7 @@ const activeClass=()=>{
 			boxNumber.classList.remove('active')
 		},1000)
 	})
+
 }
 
 const computerSelection = () => {
@@ -28,7 +28,7 @@ const computerSelection = () => {
     const computerSelection = optionArray[indexSelect].id;
     computerSelectionArray.push(computerSelection);
     activeClass()
-    // function to add active class
+    
 }
 
 // if array is iqual zero them generate first random number
@@ -47,17 +47,32 @@ startButton.addEventListener('click',()=>{
 	computeRun()
 })
 
+// human computer Checker 
+const humanComputerChecker=(selected)=>{
+	console.log(selected)
+	for(let i = 0; i<computerSelectionArray.length; i++){
+		if(selected === computerSelectionArray[i]){
+			console.log('same')
+		}else{
+			console.log('try again')
+		}
+	}
+
+}
+
 // get selection by human 
-
-// input and array creation 
-
 optionArray.forEach(selected => {
     selected.addEventListener('click', () => {
         humanSelectionArray.push(selected.id)
+        // check if computer selection is equal
+    humanComputerChecker(selected.id);
       
 
     })
 })
+// input and array creation 
+
+
 
 // logic: if iterate thru computed array , user can click
 // as user clicks check if index of computer is equal 

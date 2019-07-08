@@ -118,12 +118,11 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-// computer generated 
 var optionArray = document.querySelectorAll('.box');
 var startButton = document.getElementById('start'); // human and computer genereated arrays 
 
 var humanSelectionArray = [];
-var computerSelectionArray = [];
+var computerSelectionArray = []; // computer activate class when computer number is originated
 
 var activeClass = function activeClass() {
   computerSelectionArray.forEach(function (box) {
@@ -141,7 +140,7 @@ var computerSelection = function computerSelection() {
   console.log(indexSelect);
   var computerSelection = optionArray[indexSelect].id;
   computerSelectionArray.push(computerSelection);
-  activeClass(); // function to add active class
+  activeClass();
 }; // if array is iqual zero them generate first random number
 
 
@@ -157,14 +156,29 @@ var computeRun = function computeRun() {
 
 startButton.addEventListener('click', function () {
   computeRun();
-}); // get selection by human 
-// input and array creation 
+}); // human computer Checker 
+
+var humanComputerChecker = function humanComputerChecker(selected) {
+  console.log(selected);
+
+  for (var i = 0; i < computerSelectionArray.length; i++) {
+    if (selected === computerSelectionArray[i]) {
+      console.log('same');
+    } else {
+      console.log('try again');
+    }
+  }
+}; // get selection by human 
+
 
 optionArray.forEach(function (selected) {
   selected.addEventListener('click', function () {
-    humanSelectionArray.push(selected.id);
+    humanSelectionArray.push(selected.id); // check if computer selection is equal
+
+    humanComputerChecker(selected.id);
   });
-}); // logic: if iterate thru computed array , user can click
+}); // input and array creation 
+// logic: if iterate thru computed array , user can click
 // as user clicks check if index of computer is equal 
 // comparing selections
 },{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
