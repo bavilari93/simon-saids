@@ -39,9 +39,14 @@ header {
     width: 39%;
     height: 40%;
     background: black;
+    transition: background 1s ease;
     margin: 1rem;
     cursor: pointer;
 
+}
+
+div.box.active{
+	background:blue;
 }
 
 /*alider button*/
