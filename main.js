@@ -1,5 +1,7 @@
 const optionArray = document.querySelectorAll('.box');
+const modal = document.getElementById('game-over');
 const startButton = document.getElementById('start');
+const restart = document.getElementById('restart');
 const counter = document.getElementById('counter');
 // human and computer genereated arrays 
 let humanSelectionArray = [];
@@ -7,6 +9,10 @@ let computerSelectionArray = [];
 let level = 1;
 let turn = 'computer';
 
+restart.addEventListener('click', ()=>{
+	modal.style.display='none';
+	startRound();
+})
 // click to start 
 startButton.addEventListener('click', () => {
     humanSelectionArray = [];
@@ -14,9 +20,11 @@ startButton.addEventListener('click', () => {
     startRound();
 
 })
+
+
 // computer generated 
 const startRound = () => {
-   	counter.innerHTML= level;
+    counter.innerHTML = level;
     let computerGenerated = Math.floor(Math.random() * 4)
     let option = optionArray[computerGenerated].id;
     if (option === computerSelectionArray[computerSelectionArray.length - 1]) {
@@ -27,7 +35,7 @@ const startRound = () => {
         humanSelectionArray = [];
         showSequence();
     }
-   
+
 }
 
 // toggles class for  human and computer 
@@ -60,24 +68,25 @@ const classToggle = (element) => {
 
 const levelUp = () => {
     level++;
-    
+
 }
 
 // human sequense 
 
 
 optionArray.forEach(e => {
-        e.addEventListener('click', () => {
-        	// stop from click 
-        	 if (turn === 'human') {
+    e.addEventListener('click', () => {
+        // stop from click 
+        if (turn === 'human') {
             let clickedElement = e.id
             humanSelectionArray.push(clickedElement)
+            // check that each selection is right
             checkSequense(humanSelectionArray.length - 1)
 
             classToggle(clickedElement)
-            }
-        })
-    
+        }
+    })
+
 })
 
 
@@ -87,12 +96,12 @@ const checkSequense = (indexofArray) => {
     if (humanSelectionArray[indexofArray] === computerSelectionArray[indexofArray] &&
         humanSelectionArray.length === computerSelectionArray.length) {
         setTimeout(() => {
-        		turn = 'computer'
+            turn = 'computer'
             startRound()
             levelUp()
         }, 1000)
     } else {
-        // modal box for loosing
-        // reset all 
+    	console.log('fail')
+        // modal.style.display= 'flex';
     }
 }

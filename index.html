@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Varela&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+
     <title>Simo says</title>
 </head>
 
@@ -14,10 +16,11 @@
     <div class="container">
         <!-- controls -->
         <header>
+        	<img src="./simon-head.png" alt="simon">
         	<h1>simon</h1>
             <section class="controls">
                 
-                <button id="start">start</button>
+                <button id="start" class="btn">start</button>
             </section>
         </header>
         <!-- game board -->
@@ -30,6 +33,11 @@
             <div id="boxB" class="box"></div>
             <div id="boxC" class="box"></div>
             <div id="boxD" class="box"></div>
+        </div>
+        <div id="game-over">
+        	<img src="./simon.png" alt="simon">
+        	<h1>simon says</h1>
+        	<button id="restart" class="btn">Try Again</button>
         </div>
     </div>
     <script src="./main.js"></script>

@@ -4,6 +4,9 @@ html>* {
     margin: 0;
     box-sizing: border-box;
 }
+body{
+	font-family: 'Fjalla One', sans-serif;
+}
 
 .container {
     display: flex;
@@ -26,11 +29,17 @@ header {
 
 header h1 {
     position: absolute;
-    left: 10%;
+    left: 15%;
     top: 1rem;
     color: #ff9900;
     font-size: 3em;
 
+}
+header img{
+	position: absolute;
+    left: 5%;
+    width: 20%;
+    max-width: 70px;
 }
 
 .controls {
@@ -38,7 +47,7 @@ header h1 {
     right: 10%;
 }
 
-#start {
+.btn{
     background: #3333ff;
     border: none;
     padding: 21px 55px;
@@ -51,8 +60,8 @@ header h1 {
     cursor: pointer;
 }
 
-#start:hover,
-#start:focus {
+.btn:hover,
+.btn:focus {
     letter-spacing: 4px;
       outline: none;
 }
@@ -119,4 +128,25 @@ div.box.active {
 #counter {
 
     font-weight: bolder;
+}
+
+#game-over{
+	    width: 80%;
+    height: 50%;
+        display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    text-align: center;
+        z-index: 100;
+    border: solid 1rem black;
+    border-radius: 26px;
+    position: absolute;
+
+}
+#game-over img{
+	max-width: 200px;
+    height: auto;
+	
 }

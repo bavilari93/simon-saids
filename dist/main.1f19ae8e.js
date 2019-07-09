@@ -119,13 +119,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"main.js":[function(require,module,exports) {
 var optionArray = document.querySelectorAll('.box');
+var modal = document.getElementById('game-over');
 var startButton = document.getElementById('start');
+var restart = document.getElementById('restart');
 var counter = document.getElementById('counter'); // human and computer genereated arrays 
 
 var humanSelectionArray = [];
 var computerSelectionArray = [];
 var level = 1;
-var turn = 'computer'; // click to start 
+var turn = 'computer';
+restart.addEventListener('click', function () {
+  modal.style.display = 'none';
+  startRound();
+}); // click to start 
 
 startButton.addEventListener('click', function () {
   humanSelectionArray = [];
@@ -182,7 +188,8 @@ optionArray.forEach(function (e) {
     // stop from click 
     if (turn === 'human') {
       var clickedElement = e.id;
-      humanSelectionArray.push(clickedElement);
+      humanSelectionArray.push(clickedElement); // check that each selection is right
+
       checkSequense(humanSelectionArray.length - 1);
       classToggle(clickedElement);
     }
@@ -196,8 +203,8 @@ var checkSequense = function checkSequense(indexofArray) {
       startRound();
       levelUp();
     }, 1000);
-  } else {// modal box for loosing
-    // reset all 
+  } else {
+    console.log('fail'); // modal.style.display= 'flex';
   }
 };
 },{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
