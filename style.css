@@ -2,6 +2,7 @@ html>
 * {
     border: 0;
     padding: 0;
+    margin:0;
     box-sizing: border-box;
 }
 
@@ -17,18 +18,53 @@ html>
 header {
     width: 100%;
     height: 10rem;
-    background: aliceblue;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;    
     align-items: center;
     position: absolute;
     top:0;
+}
+header h1{
+	position: absolute;
+	left:10%;
+	top: 1rem;
+	color:#ff9900;
+	font-size: 3em;
+
+}
+.controls{
+	position: relative;
+	right:10%;
+}
+
+#start{
+	background: #3333ff;
+	   border: none;
+	       padding: 21px 55px;
+	
+	       font-size: xx-large;
+    text-decoration: none;
+    color: white;
+    font-variant: all-petite-caps;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#start:hover,
+#start:focus{
+	letter-spacing: 4px;
+}
+
+#start:focus {
+    outline: none;
+    background: black;
 
 }
 
 .symon-container {
     display: flex;
     flex-direction: row;
+
+    justify-content: center;
     width: 80%;
     height: 50%;
     flex-wrap: wrap;
@@ -38,74 +74,39 @@ header {
 .symon-container>div {
     width: 39%;
     height: 40%;
-    background: black;
-    transition: background 1s ease;
+    transition: opacity 1s ease, transform .5s ease-out;
     margin: 1rem;
     cursor: pointer;
+    border-radius: 2rem;
 
 }
+#boxA{
+	background:#ff9900;
+}
+#boxB{
+	background:#ff6699;
+}
+#boxC{
+	background: #3333ff;
+}
+#boxD{
+	background: #339933;
+}
+
+#boxA.active{
+	background:#ff9900;
+}
+
 
 div.box.active{
-	background:blue;
+	opacity:.7;
+	transform : scale(1.05);
 }
 
-/*alider button*/
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 4rem;
-  height: 3rem;
+#counter{
+	    position: absolute;
+    	margin-top: -1rem;
+    	font-size: 5em;
+    	font-weight: bolder;
 }
 
-.switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 2.5rem;
-  width: 2rem;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-/*checked slider background */
-input:checked + .slider {
-  background-color: blue;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-/*slider move*/
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 2rem;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}

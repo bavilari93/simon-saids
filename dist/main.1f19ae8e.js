@@ -119,24 +119,32 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"main.js":[function(require,module,exports) {
 var optionArray = document.querySelectorAll('.box');
-var startButton = document.getElementById('start'); // human and computer genereated arrays 
+var startButton = document.getElementById('start');
+var counter = document.getElementById('counter'); // human and computer genereated arrays 
 
 var humanSelectionArray = [];
 var computerSelectionArray = [];
-var levelCounter = 0;
 var level = 0;
-var turn = ''; // click to start 
+var turn = 'computer'; // click to start 
 
 startButton.addEventListener('click', function () {
+  humanSelectionArray = [];
+  computerSelectionArray = [];
   startRound();
 }); // computer generated 
 
 var startRound = function startRound() {
+  counter.innerHTML = level;
   var computerGenerated = Math.floor(Math.random() * 4);
   var option = optionArray[computerGenerated].id;
-  computerSelectionArray.push(option);
-  humanSelectionArray = [];
-  showSequence();
+
+  if (option === computerSelectionArray[computerSelectionArray.length - 1]) {
+    startRound();
+  } else {
+    computerSelectionArray.push(option);
+    humanSelectionArray = [];
+    showSequence();
+  }
 }; // toggles class for  human and computer 
 
 
@@ -147,17 +155,18 @@ var showSequence = function showSequence() {
     (function (i) {
       counter += 1;
       setTimeout(function () {
-        console.log(computerSelectionArray[i]);
         classToggle(computerSelectionArray[i]);
       }, 700 * counter);
     })(i);
   }
+
+  turn = 'human';
+  console.log(turn);
 }; // toggle and remove class
 
 
 var classToggle = function classToggle(element) {
   var boxSelection = document.getElementById("".concat(element));
-  console.log(boxSelection);
   boxSelection.classList.toggle('active');
   setTimeout(function () {
     boxSelection.classList.remove('active');
@@ -171,18 +180,25 @@ var levelUp = function levelUp() {
 
 optionArray.forEach(function (e) {
   e.addEventListener('click', function () {
-    var clickedElement = e.id;
-    humanSelectionArray.push(clickedElement);
-    checkSequense(humanSelectionArray.length - 1);
-    classToggle(clickedElement);
+    // stop from click 
+    if (turn === 'human') {
+      var clickedElement = e.id;
+      humanSelectionArray.push(clickedElement);
+      checkSequense(humanSelectionArray.length - 1);
+      classToggle(clickedElement);
+    }
   });
 }); // check if answer is correct 
 
 var checkSequense = function checkSequense(indexofArray) {
   if (humanSelectionArray[indexofArray] === computerSelectionArray[indexofArray] && humanSelectionArray.length === computerSelectionArray.length) {
     setTimeout(function () {
+      turn = 'computer';
       startRound();
+      levelUp();
     }, 1000);
+  } else {// modal box for loosing
+    // reset all 
   }
 };
 },{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
