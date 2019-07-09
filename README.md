@@ -5,7 +5,8 @@ Simon says is a traditional game that aims for the user to follow as simon does.
 
 
 # Wireframes
-<img width="548" alt="Screen Shot 2019-07-09 at 2 16 46 PM" src="https://user-images.githubusercontent.com/28660530/60920580-c30f7200-a255-11e9-8877-4a8345747052.png">
+
+<img width="579" alt="Screen Shot 2019-07-09 at 2 14 46 PM" src="https://user-images.githubusercontent.com/28660530/60920615-dae6f600-a255-11e9-8a0f-58143566bbff.png">
 
 <img width="548" alt="Screen Shot 2019-07-09 at 2 16 46 PM" src="https://user-images.githubusercontent.com/28660530/60920048-7e370b80-a254-11e9-8026-0672d93baeaf.png">
 
