@@ -122,65 +122,39 @@ var optionArray = document.querySelectorAll('.box');
 var startButton = document.getElementById('start'); // human and computer genereated arrays 
 
 var humanSelectionArray = [];
-var computerSelectionArray = []; // computer activate class when computer number is originated
-
-var activeClass = function activeClass() {
-  computerSelectionArray.forEach(function (box) {
-    var boxNumber = document.getElementById("".concat(box));
-    console.log(boxNumber);
-    boxNumber.classList.toggle('active');
-    setTimeout(function () {
-      boxNumber.classList.remove('active');
-    }, 1000);
-  });
-};
-
-var computerSelection = function computerSelection() {
-  var indexSelect = Math.floor(Math.random() * Math.floor(4));
-  console.log(indexSelect);
-  var computerSelection = optionArray[indexSelect].id;
-  computerSelectionArray.push(computerSelection);
-  activeClass();
-}; // if array is iqual zero them generate first random number
-
-
-var computeRun = function computeRun() {
-  if (computerSelectionArray.length == 0) {
-    computerSelection();
-  } else {
-    console.log(computerSelectionArray); // iterate through them toggle class active
-    // once iterated wait for user to click
-  }
-}; // initialize game with start button
-
+var computerSelectionArray = [];
+var levelCounter = 0;
+var level = 0; // click to start 
 
 startButton.addEventListener('click', function () {
-  computeRun();
-}); // human computer Checker 
+  startRound();
+}); // computer generated 
 
-var humanComputerChecker = function humanComputerChecker(selected) {
-  console.log(selected);
+var startRound = function startRound() {
+  var computerGenerated = Math.floor(Math.random() * 4);
+  var option = optionArray[computerGenerated].id;
+  computerSelectionArray.push(option);
+  showSequence(computerSelectionArray[computerSelectionArray.length - 1]);
+  humanSelectionArray = [];
+};
 
-  for (var i = 0; i < computerSelectionArray.length; i++) {
-    if (selected === computerSelectionArray[i]) {
-      console.log('same');
-    } else {
-      console.log('try again');
-    }
+var showSequence = function showSequence(element) {
+  console.log(element);
+
+  switch (element) {
+    case 'boxA':
+      classToggle(element);
+      break;
   }
-}; // get selection by human 
+};
 
-
-optionArray.forEach(function (selected) {
-  selected.addEventListener('click', function () {
-    humanSelectionArray.push(selected.id); // check if computer selection is equal
-
-    humanComputerChecker(selected.id);
+var classToggle = function classToggle(element) {
+  var boxSelection = document.getElementById("".concat(element));
+  boxSelection.classList.toggle('active');
+  setTimeOut(function () {
+    boxSelection.classList.remove('active');
   });
-}); // input and array creation 
-// logic: if iterate thru computed array , user can click
-// as user clicks check if index of computer is equal 
-// comparing selections
+};
 },{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
