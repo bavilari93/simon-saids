@@ -55,7 +55,7 @@ const showSequence = () => {
             setTimeout(() => {
 
                 classToggle(computerSelectionArray[i])
-            }, 700 * counter)
+            }, 400 * counter)
         })(i)
 
     }
@@ -73,7 +73,7 @@ const classToggle = (element) => {
     boxSelection.classList.toggle('active');
     setTimeout(() => {
         boxSelection.classList.remove('active');
-    }, 1000)
+    }, 600)
 }
 
 const levelUp = () => {
