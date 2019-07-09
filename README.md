@@ -17,12 +17,12 @@ user follows what the computer does
 if user fails a pop up window apears for user to try again 
 
 # MVP
-  -user can start the game 
-  -user has its turn after computer generates a patern 
-  -clicked element is compared with computer array 
-  -when user fails game starts again 
-  -display number of rounds 
-  -visually apealing game 
+  - user can start the game 
+  - user has its turn after computer generates a patern 
+  - clicked element is compared with computer array 
+  - when user fails game starts again 
+  - display number of rounds 
+  - visually apealing game 
 
 # technologies & instalation
 -JavaScript
