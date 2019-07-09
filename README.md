@@ -25,9 +25,9 @@ if user fails a pop up window apears for user to try again
 -visually apealing game 
 
 # technologies & instalation
-JavaScript
-HTML
-CSS
+-JavaScript
+-HTML
+-CSS
 To be able to run the game clone the repository and open index.html on any of the browsers 
 or visit
 https://bavilari93.github.io/simon-saids/
