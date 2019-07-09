@@ -124,7 +124,7 @@ var counter = document.getElementById('counter'); // human and computer genereat
 
 var humanSelectionArray = [];
 var computerSelectionArray = [];
-var level = 0;
+var level = 1;
 var turn = 'computer'; // click to start 
 
 startButton.addEventListener('click', function () {
@@ -161,7 +161,6 @@ var showSequence = function showSequence() {
   }
 
   turn = 'human';
-  console.log(turn);
 }; // toggle and remove class
 
 

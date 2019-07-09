@@ -1,8 +1,7 @@
-html>
-* {
+html>* {
     border: 0;
     padding: 0;
-    margin:0;
+    margin: 0;
     box-sizing: border-box;
 }
 
@@ -19,46 +18,45 @@ header {
     width: 100%;
     height: 10rem;
     display: flex;
-    justify-content: flex-end;    
+    justify-content: flex-end;
     align-items: center;
     position: absolute;
-    top:0;
-}
-header h1{
-	position: absolute;
-	left:10%;
-	top: 1rem;
-	color:#ff9900;
-	font-size: 3em;
-
-}
-.controls{
-	position: relative;
-	right:10%;
+    top: 0;
 }
 
-#start{
-	background: #3333ff;
-	   border: none;
-	       padding: 21px 55px;
-	
-	       font-size: xx-large;
+header h1 {
+    position: absolute;
+    left: 10%;
+    top: 1rem;
+    color: #ff9900;
+    font-size: 3em;
+
+}
+
+.controls {
+    position: relative;
+    right: 10%;
+}
+
+#start {
+    background: #3333ff;
+    border: none;
+    padding: 21px 55px;
+
+    font-size: xx-large;
     text-decoration: none;
     color: white;
     font-variant: all-petite-caps;
     border-radius: 10px;
     cursor: pointer;
 }
+
 #start:hover,
-#start:focus{
-	letter-spacing: 4px;
-}
-
 #start:focus {
-    outline: none;
-    background: black;
-
+    letter-spacing: 4px;
+      outline: none;
 }
+
 
 .symon-container {
     display: flex;
@@ -80,36 +78,47 @@ header h1{
     border-radius: 2rem;
 
 }
-#boxA{
-	background:#ff9900;
-}
-#boxB{
-	background:#ff6699;
-}
-#boxC{
-	background: #3333ff;
-}
-#boxD{
-	background: #339933;
+
+#boxA {
+    background: #ff9900;
 }
 
-#boxA.active{
-	background:#ff9900;
+#boxB {
+    background: #ff6699;
 }
 
-
-div.box.active{
-	opacity:.7;
-	transform : scale(1.05);
+#boxC {
+    background: #3333ff;
 }
 
-#counter{
-	    position: absolute;
-    	margin-top: -1rem;
-    	font-size: 5em;
-    	font-weight: bolder;
+#boxD {
+    background: #339933;
+}
+
+#boxA.active {
+    background: #ff9900;
 }
 
 
+div.box.active {
+    opacity: .7;
+    transform: scale(1.05);
+}
+
+.counter {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 10px 45px;
+    border-radius: 100%;
+    position: absolute;
+    margin-top: -1rem;
+    z-index: 99;
+}
+
+#counter {
+
+    font-weight: bolder;
+}
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

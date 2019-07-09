@@ -4,7 +4,7 @@ const counter = document.getElementById('counter');
 // human and computer genereated arrays 
 let humanSelectionArray = [];
 let computerSelectionArray = [];
-let level = 0;
+let level = 1;
 let turn = 'computer';
 
 // click to start 
@@ -43,8 +43,6 @@ const showSequence = () => {
 
     }
     turn = 'human'
-    console.log(turn)
-
 }
 
 
