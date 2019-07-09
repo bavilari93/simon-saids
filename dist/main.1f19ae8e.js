@@ -124,7 +124,8 @@ var startButton = document.getElementById('start'); // human and computer genere
 var humanSelectionArray = [];
 var computerSelectionArray = [];
 var levelCounter = 0;
-var level = 0; // click to start 
+var level = 0;
+var turn = ''; // click to start 
 
 startButton.addEventListener('click', function () {
   startRound();
@@ -134,26 +135,55 @@ var startRound = function startRound() {
   var computerGenerated = Math.floor(Math.random() * 4);
   var option = optionArray[computerGenerated].id;
   computerSelectionArray.push(option);
-  showSequence(computerSelectionArray[computerSelectionArray.length - 1]);
   humanSelectionArray = [];
-};
+  showSequence();
+}; // toggles class for  human and computer 
 
-var showSequence = function showSequence(element) {
-  console.log(element);
 
-  switch (element) {
-    case 'boxA':
-      classToggle(element);
-      break;
+var showSequence = function showSequence() {
+  var counter = 1;
+
+  for (var i = 0; i < computerSelectionArray.length; i++) {
+    (function (i) {
+      counter += 1;
+      setTimeout(function () {
+        console.log(computerSelectionArray[i]);
+        classToggle(computerSelectionArray[i]);
+      }, 700 * counter);
+    })(i);
   }
-};
+}; // toggle and remove class
+
 
 var classToggle = function classToggle(element) {
   var boxSelection = document.getElementById("".concat(element));
+  console.log(boxSelection);
   boxSelection.classList.toggle('active');
-  setTimeOut(function () {
+  setTimeout(function () {
     boxSelection.classList.remove('active');
+  }, 1000);
+};
+
+var levelUp = function levelUp() {
+  level++;
+}; // human sequense 
+
+
+optionArray.forEach(function (e) {
+  e.addEventListener('click', function () {
+    var clickedElement = e.id;
+    humanSelectionArray.push(clickedElement);
+    checkSequense(humanSelectionArray.length - 1);
+    classToggle(clickedElement);
   });
+}); // check if answer is correct 
+
+var checkSequense = function checkSequense(indexofArray) {
+  if (humanSelectionArray[indexofArray] === computerSelectionArray[indexofArray] && humanSelectionArray.length === computerSelectionArray.length) {
+    setTimeout(function () {
+      startRound();
+    }, 1000);
+  }
 };
 },{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
