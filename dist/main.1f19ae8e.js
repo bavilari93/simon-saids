@@ -188,23 +188,30 @@ optionArray.forEach(function (e) {
     // stop from click 
     if (turn === 'human') {
       var clickedElement = e.id;
-      humanSelectionArray.push(clickedElement); // check that each selection is right
-
-      checkSequense(humanSelectionArray.length - 1);
+      humanSelectionArray.push(clickedElement);
       classToggle(clickedElement);
+      var index = humanSelectionArray.length - 1;
+      console.log(clickedElement, index);
+      checkSequense(clickedElement, index);
     }
   });
-}); // check if answer is correct 
+}); // as i push i gotta check if the element 
 
-var checkSequense = function checkSequense(indexofArray) {
-  if (humanSelectionArray[indexofArray] === computerSelectionArray[indexofArray] && humanSelectionArray.length === computerSelectionArray.length) {
-    setTimeout(function () {
-      turn = 'computer';
-      startRound();
-      levelUp();
-    }, 1000);
+var checkSequense = function checkSequense(clickedElement, index) {
+  // chek if all element of both arrays are equal 
+  if (clickedElement === computerSelectionArray[index]) {
+    if (humanSelectionArray.length === computerSelectionArray.length) {
+      console.log('checking');
+      setTimeout(function () {
+        turn = 'computer';
+        startRound();
+        levelUp();
+      }, 1000);
+    }
   } else {
-    console.log('fail'); // modal.style.display= 'flex';
+    modal.style.display = 'flex';
+    computerSelectionArray = [];
+    level = 1;
   }
 };
 },{}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {

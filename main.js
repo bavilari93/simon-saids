@@ -9,9 +9,9 @@ let computerSelectionArray = [];
 let level = 1;
 let turn = 'computer';
 
-restart.addEventListener('click', ()=>{
-	modal.style.display='none';
-	startRound();
+restart.addEventListener('click', () => {
+    modal.style.display = 'none';
+    startRound();
 })
 // click to start 
 startButton.addEventListener('click', () => {
@@ -75,33 +75,47 @@ const levelUp = () => {
 
 
 optionArray.forEach(e => {
+
     e.addEventListener('click', () => {
+
         // stop from click 
         if (turn === 'human') {
+
             let clickedElement = e.id
             humanSelectionArray.push(clickedElement)
-            // check that each selection is right
-            checkSequense(humanSelectionArray.length - 1)
-
             classToggle(clickedElement)
+            let index = humanSelectionArray.length - 1;
+
+
+            console.log(clickedElement, index)
+            checkSequense(clickedElement, index)
+
         }
     })
 
 })
 
 
-// check if answer is correct 
+// as i push i gotta check if the element 
 
-const checkSequense = (indexofArray) => {
-    if (humanSelectionArray[indexofArray] === computerSelectionArray[indexofArray] &&
-        humanSelectionArray.length === computerSelectionArray.length) {
-        setTimeout(() => {
-            turn = 'computer'
-            startRound()
-            levelUp()
-        }, 1000)
-    } else {
-    	console.log('fail')
-        // modal.style.display= 'flex';
-    }
+const checkSequense = (clickedElement, index) => {
+
+    // chek if all element of both arrays are equal 
+
+    if (clickedElement === computerSelectionArray[index]) {
+        if (humanSelectionArray.length === computerSelectionArray.length) {
+            console.log('checking');
+            setTimeout(() => {
+                turn = 'computer'
+                startRound()
+                levelUp()
+            }, 1000)
+        } 
+    }else {
+            
+            modal.style.display= 'flex';
+            computerSelectionArray =[];
+            level = 1;
+        }
+
 }

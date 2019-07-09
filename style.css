@@ -29,7 +29,7 @@ header {
 
 header h1 {
     position: absolute;
-    left: 15%;
+    left: 20%;
     top: 1rem;
     color: #ff9900;
     font-size: 3em;
@@ -79,7 +79,7 @@ header img{
 }
 
 .symon-container>div {
-    width: 39%;
+    width: 30%;
     height: 40%;
     transition: opacity 1s ease, transform .5s ease-out;
     margin: 1rem;
