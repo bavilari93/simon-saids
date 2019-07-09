@@ -122,7 +122,10 @@ var optionArray = document.querySelectorAll('.box');
 var modal = document.getElementById('game-over');
 var startButton = document.getElementById('start');
 var restart = document.getElementById('restart');
-var counter = document.getElementById('counter'); // human and computer genereated arrays 
+var counter = document.getElementById('counter'); // sounds 
+
+var soundSnare = "Click";
+createjs.Sound.registerSound("https://s3.amazonaws.com/nrf-codepen-assets/water-drop.mp3", soundSnare); // human and computer genereated arrays 
 
 var humanSelectionArray = [];
 var computerSelectionArray = [];
@@ -131,6 +134,7 @@ var turn = 'computer';
 restart.addEventListener('click', function () {
   modal.style.display = 'none';
   startRound();
+  startButton.disabled = true;
 }); // click to start 
 
 startButton.addEventListener('click', function () {
@@ -172,6 +176,7 @@ var showSequence = function showSequence() {
 
 var classToggle = function classToggle(element) {
   var boxSelection = document.getElementById("".concat(element));
+  createjs.Sound.play(soundSnare);
   boxSelection.classList.toggle('active');
   setTimeout(function () {
     boxSelection.classList.remove('active');
@@ -191,17 +196,15 @@ optionArray.forEach(function (e) {
       humanSelectionArray.push(clickedElement);
       classToggle(clickedElement);
       var index = humanSelectionArray.length - 1;
-      console.log(clickedElement, index);
       checkSequense(clickedElement, index);
     }
   });
-}); // as i push i gotta check if the element 
+});
 
 var checkSequense = function checkSequense(clickedElement, index) {
-  // chek if all element of both arrays are equal 
+  // chek if clicked element is equal to computer
   if (clickedElement === computerSelectionArray[index]) {
     if (humanSelectionArray.length === computerSelectionArray.length) {
-      console.log('checking');
       setTimeout(function () {
         turn = 'computer';
         startRound();

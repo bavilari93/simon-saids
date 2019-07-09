@@ -3,6 +3,10 @@ const modal = document.getElementById('game-over');
 const startButton = document.getElementById('start');
 const restart = document.getElementById('restart');
 const counter = document.getElementById('counter');
+
+// sounds 
+let soundSnare = "Click";
+createjs.Sound.registerSound("https://s3.amazonaws.com/nrf-codepen-assets/water-drop.mp3", soundSnare);
 // human and computer genereated arrays 
 let humanSelectionArray = [];
 let computerSelectionArray = [];
@@ -12,12 +16,15 @@ let turn = 'computer';
 restart.addEventListener('click', () => {
     modal.style.display = 'none';
     startRound();
+    startButton.disabled = true;
+
 })
 // click to start 
 startButton.addEventListener('click', () => {
     humanSelectionArray = [];
     computerSelectionArray = [];
     startRound();
+
 
 })
 
@@ -41,15 +48,18 @@ const startRound = () => {
 // toggles class for  human and computer 
 const showSequence = () => {
     let counter = 1;
+
     for (let i = 0; i < computerSelectionArray.length; i++) {
         ((i) => {
             counter += 1
             setTimeout(() => {
+
                 classToggle(computerSelectionArray[i])
             }, 700 * counter)
         })(i)
 
     }
+
     turn = 'human'
 }
 
@@ -59,7 +69,7 @@ const showSequence = () => {
 const classToggle = (element) => {
 
     let boxSelection = document.getElementById(`${element}`)
-
+    createjs.Sound.play(soundSnare);
     boxSelection.classList.toggle('active');
     setTimeout(() => {
         boxSelection.classList.remove('active');
@@ -85,9 +95,6 @@ optionArray.forEach(e => {
             humanSelectionArray.push(clickedElement)
             classToggle(clickedElement)
             let index = humanSelectionArray.length - 1;
-
-
-            console.log(clickedElement, index)
             checkSequense(clickedElement, index)
 
         }
@@ -96,26 +103,23 @@ optionArray.forEach(e => {
 })
 
 
-// as i push i gotta check if the element 
 
 const checkSequense = (clickedElement, index) => {
 
-    // chek if all element of both arrays are equal 
-
+    // chek if clicked element is equal to computer
     if (clickedElement === computerSelectionArray[index]) {
         if (humanSelectionArray.length === computerSelectionArray.length) {
-            console.log('checking');
             setTimeout(() => {
                 turn = 'computer'
                 startRound()
                 levelUp()
             }, 1000)
-        } 
-    }else {
-            
-            modal.style.display= 'flex';
-            computerSelectionArray =[];
-            level = 1;
         }
+    } else {
+
+        modal.style.display = 'flex';
+        computerSelectionArray = [];
+        level = 1;
+    }
 
 }

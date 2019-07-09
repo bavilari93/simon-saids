@@ -79,7 +79,7 @@ header img{
 }
 
 .symon-container>div {
-    width: 30%;
+    width: 35%;
     height: 40%;
     transition: opacity 1s ease, transform .5s ease-out;
     margin: 1rem;
@@ -122,7 +122,7 @@ div.box.active {
     border-radius: 100%;
     position: absolute;
     margin-top: -1rem;
-    z-index: 99;
+    z-index: 50;
 }
 
 #counter {
@@ -132,21 +132,35 @@ div.box.active {
 
 #game-over{
 	    width: 80%;
-    height: 50%;
+    height:auto;
         display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: white;
     text-align: center;
-        z-index: 100;
+        z-index: 70;
     border: solid 1rem black;
     border-radius: 26px;
     position: absolute;
+    padding: 2rem 0;
+
 
 }
 #game-over img{
 	max-width: 200px;
     height: auto;
+    position: relative;
+    z-index: 99;
 	
+}
+
+@media (max-width:480px ){
+	header h1{
+		left: 24%;
+		font-size: 2.5em;
+	}
+	.btn{
+		padding: 15px 25px;
+	}
 }
