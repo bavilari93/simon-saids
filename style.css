@@ -140,8 +140,8 @@ header img{
 
 
 div.box.active {
-    opacity: .7;
-    transform: scale(1.05);
+    opacity: .9;
+    transform: scale(1.09);
 }
 
 .counter {
